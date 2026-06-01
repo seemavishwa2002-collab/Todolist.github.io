@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple ToDo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px;
+        }
+
+        li {
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>To-Do List</h2>
+
+<input type="text" id="task">
+<button onclick="addTask()">Add</button>
+
+<ul id="list"></ul>
+
+<script>
+function addTask() {
+    let input = document.getElementById("task");
+
+    if (input.value === "") return;
+
+    let li = document.createElement("li");
+    li.innerHTML = input.value + " <button onclick='this.parentElement.remove()'>X</button>";
+
+    document.getElementById("list").appendChild(li);
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
